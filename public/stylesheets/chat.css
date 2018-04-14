@@ -7,13 +7,21 @@ body {
 }
 
 #message-pane {
-    background-color: #ba0000;
+    background-color: #00ACC1;
 }
 
 .material-icons {
     font-size: 57px !important;
 }
 
-.md-fab {
+.md-primary {
     color: #ba0000;
+}
+
+.message-card {
+    border-radius: 10px;
+    max-width: 375px;
+    padding: 10px;
+    font-family: Arial;
+    background-color: #9575CD;
 }
