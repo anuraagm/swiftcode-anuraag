@@ -1,1 +1,19 @@
+html,
+body {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
 
+#message-pane {
+    background-color: #ba0000;
+}
+
+.material-icons {
+    font-size: 57px !important;
+}
+
+.md-fab {
+    color: #ba0000;
+}
