@@ -23,6 +23,7 @@ public class NewsAgentService {
                     .setQueryParameter("Authorization","Bearer 054a388ef08e46c3beb61cd9a12dd13f")
                     .get();
             JsonNode response = responsePromise.thenApply(WSResponse::asJson).toCompletableFuture().get();
+            System.out.println(response);
             newsAgentResponse.query = response.get("result").get("parameters").get("keyword").asText().isEmpty() ?
                     (response.get("result").get("parameters").get("source").asText().isEmpty()
                             ? response.get("result").get("parameters").get("category").asText()

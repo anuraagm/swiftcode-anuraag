@@ -19,13 +19,14 @@
             </div>
         </md-content>
         <md-card id="form-card" layout="row" flex>
-            <form layout="column" flex="90">
+            <form layout="column" flex="90" ng-submit="sendMessage()">
                 <md-input-container layout="column" flex>
                     <label>Message</label>
                     <input ng-model="userMessage" layout="column" flex="90">
                 </md-input-container>
             </form>
-            <md-button class="md-fab md-raised md-primary md-hue" layout-align="center" flex>
+            <md-button class="md-fab md-raised md-primary md-hue" layout-align="center" ng-click="sendMessage()"
+                flex>
                 <i class="material-icons" layout-align="center">send</i>
             </md-button>
         </md-card>
