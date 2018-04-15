@@ -8,6 +8,9 @@ body {
 
 #message-pane {
     background-color: #00ACC1;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url(http://i0.kym-cdn.com/photos/images/facebook/000/114/193/1298574546091.jpg);
 }
 
 .material-icons {

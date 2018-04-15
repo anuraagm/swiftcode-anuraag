@@ -35,7 +35,6 @@ public class MessageActor extends UntypedActor {
 
     @Override
     public void onReceive(Object message) throws Throwable {
-        //object of feed response
         ObjectMapper objectMapper = new ObjectMapper();
         if (message instanceof String) {
             Message messageObject = new Message();
