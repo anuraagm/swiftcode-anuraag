@@ -4,11 +4,17 @@ app.config(function ($mdThemingProvider) {
         .primaryPalette('purple')
         .accentPalette('green');
 });
-app.controller('chatController', function ($scope) {
+app.controller('chatController', function ($scope, $sce) {
     $scope.messages = [];
+    $scope.trust = $sce.trustAsHtml;
     var exampleSocket = new WebSocket('ws://localhost:9000/chatSocket');
     exampleSocket.onmessage = function (event) {
-        console.log(event.data);
+        var jsonData = JSON.parse(event.data);
+        jsonData.time = new Date()
+            .toLocaleTimeString();
+        $scope.messages.push(jsonData);
+        $scope.$apply();
+        console.log(jsonData);
     };
     $scope.sendMessage = function () {
         exampleSocket.send($scope.userMessage);

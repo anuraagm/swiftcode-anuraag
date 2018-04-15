@@ -16,14 +16,14 @@ public class FeedService {
         try{
             WSRequest queryRequest = WS.url("https://news.google.com/news");
             CompletionStage<WSResponse> responsePromise = queryRequest
-                    .setQueryParameter("query", query)
+                    .setQueryParameter("q", query)
                     .setQueryParameter("output", "rss")
                     .get();
             Document feedResponse = responsePromise.thenApply(WSResponse::asXml).toCompletableFuture().get();
-            Node item = feedResponse.getFirstChild().getChildNodes().item(10);
+            Node item = feedResponse.getFirstChild().getFirstChild().getChildNodes().item(10);
             feedResponseObject.title = item.getChildNodes().item(0).getFirstChild().getNodeValue();
-            feedResponseObject.pubDate = item.getChildNodes().item(4).getFirstChild().getNodeValue();
-            feedResponseObject.description = item.getChildNodes().item(5).getFirstChild().getNodeValue();
+            feedResponseObject.pubDate = item.getChildNodes().item(3).getFirstChild().getNodeValue();
+            feedResponseObject.description = item.getChildNodes().item(4).getFirstChild().getNodeValue();
             //feedResponseObject.title = item.getChildNodes.item(0).toString();
             //feedResponseObject.description = item.getChildNodes.item(5).toString();
             //feedResponseObject.pubDate = item.getChildNodes.item(4).toString();
